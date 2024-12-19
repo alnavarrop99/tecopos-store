@@ -177,6 +177,15 @@ importers:
 
   packages/react-19:
     dependencies:
+      '@tecopos/components':
+        specifier: workspace:*
+        version: link:../../lib/components
+      '@tecopos/db':
+        specifier: workspace:*
+        version: link:../../lib/db
+      '@tecopos/msw':
+        specifier: workspace:*
+        version: link:../../lib/msw
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
@@ -247,6 +256,15 @@ importers:
       '@react-router/serve':
         specifier: 'catalog:'
         version: 7.0.2(react-router@7.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)
+      '@tecopos/components':
+        specifier: workspace:*
+        version: link:../../lib/components
+      '@tecopos/db':
+        specifier: workspace:*
+        version: link:../../lib/db
+      '@tecopos/msw':
+        specifier: workspace:*
+        version: link:../../lib/msw
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
