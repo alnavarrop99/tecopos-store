@@ -9,24 +9,24 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@react-router/node": "^7.0.2",
-    "@react-router/serve": "^7.0.2",
-    "isbot": "^5.1.17",
+    "@react-router/node": "catalog:",
+    "@react-router/serve": "catalog:",
+    "isbot": "catalog:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.0.2"
+    "react-router": "catalog:"
   },
   "devDependencies": {
-    "@react-router/dev": "^7.0.2",
-    "@types/node": "^20",
+    "@react-router/dev": "catalog:",
+    "@types/node": "catalog:",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
-    "autoprefixer": "^10.4.20",
-    "cross-env": "^7.0.3",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
+    "autoprefixer": "catalog:",
+    "cross-env": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "catalog:"
   }
 }
