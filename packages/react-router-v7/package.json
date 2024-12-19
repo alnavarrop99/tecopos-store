@@ -11,10 +11,13 @@
   "dependencies": {
     "@react-router/node": "catalog:",
     "@react-router/serve": "catalog:",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
     "isbot": "catalog:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "catalog:"
+    "react-router": "catalog:",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
     "@react-router/dev": "catalog:",
@@ -23,8 +26,10 @@
     "@types/react-dom": "^19.0.1",
     "autoprefixer": "catalog:",
     "cross-env": "catalog:",
+    "daisyui": "^4.12.22",
     "postcss": "catalog:",
     "tailwindcss": "catalog:",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vite-tsconfig-paths": "catalog:"

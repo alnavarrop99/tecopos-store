@@ -24,3 +24,4 @@ export default {
     animate, daisyui
   ],
 } satisfies Config;
+
