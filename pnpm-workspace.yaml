@@ -24,4 +24,6 @@ catalogs:
     tailwind-merge: ^2.5.5
     autoprefixer: ^10.4.20
     postcss: ^8.4.49
+    class-variance-authority: ^0.7.1
+
 

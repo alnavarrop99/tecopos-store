@@ -12,30 +12,26 @@
   "types": "./dist/index.d.ts",
   "main": "./dist/vite/index.js",
   "module": "./dist/vite/index.js",
+  "files": ["dist"],
   "peerDependencies": {
-    "clsx": "catalog:tailwindcss",
     "dayjs": "catalog:",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
-    "tailwind-merge": "catalog:tailwindcss"
+    "class-variance-authority": "catalog:tailwindcss"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
     "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "catalog:tailwindcss",
     "babel-plugin-react-compiler": "catalog:react19",
-    "daisyui": "catalog:tailwindcss",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "catalog:",
-    "postcss": "catalog:tailwindcss",
-    "tailwindcss": "catalog:tailwindcss",
-    "tailwindcss-animate": "catalog:tailwindcss",
     "typescript": "catalog:",
     "typescript-eslint": "^8.18.1",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vite-plugin-dts": "^4.4.0"
   }
 }

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import 'class-variance-authority'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,18 +10,15 @@ export default defineConfig({
       entry: resolve(__dirname, 'src', 'index.ts'),
       name: 'components',
       fileName: 'index',
-      formats: ['es']
     },
-    outDir: resolve(__dirname, 'dist', "vite"),
+    outDir: resolve(__dirname, 'dist', 'vite'),
     rollupOptions: {
-      external: ['react', 'react-dom', 'clsx', 'tailwind-merge', 'dayjs'],
+      external: ['react', 'react-dom', 'dayjs', 'class-variance-authority'],
       output: {
         globals: {
           "react": "React",
           "react-dom": "ReactDOM",
-          "clsx": "clsx",
-          "tailwind-merge": "tw",
-          "dayjs": "dayjs"
+          "dayjs": "Dayjs",
         }
       }
     }
@@ -32,4 +30,7 @@ export default defineConfig({
       ],
     }
   })],
+  css: {
+    postcss: {}
+  }
 })
