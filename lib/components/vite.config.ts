@@ -6,9 +6,12 @@ import { resolve } from 'path'
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, 'src', 'main.ts'),
-      name: '@tecopos/components',
+      entry: resolve(__dirname, 'src', 'index.ts'),
+      name: 'components',
+      fileName: 'index',
+      formats: ['es']
     },
+    outDir: resolve(__dirname, 'dist', "vite"),
     rollupOptions: {
       external: ['react', 'react-dom', 'clsx', 'tailwind-merge', 'dayjs'],
       output: {

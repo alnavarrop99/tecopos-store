@@ -5,8 +5,11 @@ import { resolve } from 'path'
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, 'src', 'main.ts'),
-      name: '@tecopos/db',
+      entry: resolve(__dirname, 'src', 'index.ts'),
+      name: 'db',
+      fileName: 'index',
+      formats: ['es']
     },
+    outDir: resolve(__dirname, 'dist', 'vite')
   }
 })

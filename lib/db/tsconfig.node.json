@@ -7,18 +7,22 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist"
   },
-  "include": ["vite.config.ts", "src"]
+  "include": ["vite.config.ts", "src"],
+  "exclude": ["dist", "vite.config.ts", "node_modules"]
 }

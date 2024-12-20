@@ -9,7 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "types": "./dist/index.d.ts",
+  "main": "./dist/vite/index.js",
+  "module": "./dist/vite/index.js",
+  "peerDependencies": {
     "clsx": "catalog:tailwindcss",
     "dayjs": "catalog:",
     "react": "catalog:react19",

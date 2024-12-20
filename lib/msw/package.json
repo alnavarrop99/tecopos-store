@@ -5,15 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/vite/index.js",
+  "module": "./dist/vite/index.js",
   "devDependencies": {
     "globals": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"
   },
-  "dependencies": {
+  "peerDependencies": {
     "msw": "^2.7.0"
   }
 }
