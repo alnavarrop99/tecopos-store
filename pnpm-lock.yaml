@@ -97,6 +97,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.4(@types/node@20.17.10)(jiti@1.21.7)(yaml@2.6.1))
+      autoprefixer:
+        specifier: catalog:tailwindcss
+        version: 10.4.20(postcss@8.4.49)
       babel-plugin-react-compiler:
         specifier: catalog:react19
         version: 19.0.0-beta-37ed2a7-20241206
@@ -115,6 +118,9 @@ importers:
       globals:
         specifier: 'catalog:'
         version: 15.14.0
+      postcss:
+        specifier: catalog:tailwindcss
+        version: 8.4.49
       tailwindcss:
         specifier: catalog:tailwindcss
         version: 3.4.17
@@ -201,6 +207,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.4(@types/node@20.17.10)(jiti@1.21.7)(yaml@2.6.1))
+      autoprefixer:
+        specifier: catalog:tailwindcss
+        version: 10.4.20(postcss@8.4.49)
       babel-plugin-react-compiler:
         specifier: catalog:react19
         version: 19.0.0-beta-37ed2a7-20241206
@@ -219,6 +228,9 @@ importers:
       globals:
         specifier: 'catalog:'
         version: 15.14.0
+      postcss:
+        specifier: catalog:tailwindcss
+        version: 8.4.49
       tailwindcss:
         specifier: catalog:tailwindcss
         version: 3.4.17
