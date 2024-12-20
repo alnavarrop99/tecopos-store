@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "~5.6.2",
-    "vite": "^6.0.3",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "globals": "catalog:"
   }
 }

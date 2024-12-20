@@ -2,7 +2,11 @@
   "name": "@tecopos",
   "version": "1.0.0",
   "description": "tecopos test",
-  "scripts": {},
+  "scripts": {
+    "dev": "pnpm -F react-router-v7 -F react-19 dev",
+    "build": "pnpm -r build",
+    "preview": "pnpm -F react-router-v7 -F react-19 preview"
+  },
   "keywords": [],
   "author": "Armando L. Navarro",
   "license": "ISC"

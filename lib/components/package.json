@@ -10,26 +10,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "clsx": "catalog:",
+    "clsx": "catalog:tailwindcss",
     "dayjs": "catalog:",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "catalog:"
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "tailwind-merge": "catalog:tailwindcss"
   },
   "devDependencies": {
-    "@eslint/js": "catalog:",
-    "daisyui": "catalog:",
-    "@types/react": "^18.3.17",
-    "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react": "catalog:",
-    "eslint": "catalog:",
-    "eslint-plugin-react-hooks": "catalog:",
-    "eslint-plugin-react-refresh": "catalog:",
+    "babel-plugin-react-compiler": "catalog:react19",
+    "@eslint/js": "^9.17.0",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
+    "@vitejs/plugin-react": "^4.3.4",
+    "daisyui": "catalog:tailwindcss",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "catalog:",
-    "tailwindcss": "catalog:",
-    "tailwindcss-animate": "catalog:",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "catalog:",
-    "vite": "^6.0.3"
+    "tailwindcss": "catalog:tailwindcss",
+    "tailwindcss-animate": "catalog:tailwindcss",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.18.1",
+    "vite": "catalog:"
   }
 }
