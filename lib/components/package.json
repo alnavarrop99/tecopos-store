@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "watch": "pnpm run --stream \"/^build:.*:watch$/\"",
+    "build:ts:watch": "tsc -b --watch",
+    "build:vite:watch": "vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview"
   },

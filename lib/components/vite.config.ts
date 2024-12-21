@@ -13,7 +13,7 @@ export default defineConfig({
     },
     outDir: resolve(__dirname, 'dist', 'vite'),
     rollupOptions: {
-      external: ['react', 'react-dom', 'dayjs', 'class-variance-authority'],
+      external: ['react', 'react-dom', 'dayjs'],
       output: {
         globals: {
           "react": "React",
