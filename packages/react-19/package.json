@@ -15,6 +15,7 @@
     "@tecopos/msw": "workspace:*",
     "clsx": "catalog:tailwindcss",
     "dayjs": "catalog:",
+    "lucide-react": ":catalog",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
     "tailwind-merge": "catalog:tailwindcss",
