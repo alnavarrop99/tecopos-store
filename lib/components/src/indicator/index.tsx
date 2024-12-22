@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
-export const indicatorProps = cva('btn', {
+export const indicatorProps = cva('indicator', {
   variants: {
     align: {
       start: 'indicator-start',
@@ -13,10 +13,7 @@ export const indicatorProps = cva('btn', {
       bottom: 'indicator-bottom',
     }
   },
-  defaultVariants: {
-    align: 'end',
-    justify: 'top'
-  },
+  defaultVariants: { },
 });
 
 export type indicatorBase = VariantProps<typeof indicatorProps>
