@@ -23,7 +23,6 @@ export default () => {
   </Suspense>
 }
 
-
 const Products = ( {list}:{ list: ReturnType<typeof db.product.all> } ) => {
   const products = use(list)
   const [ cart, setCart ] = use(globalCtx).carts

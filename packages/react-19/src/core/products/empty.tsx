@@ -3,7 +3,7 @@ import { Link } from "../../comp/link"
 
 export const Empty = () => {
   return (
-    <Hero className="bg-base-100 lg:min-h-[50dvh] min-h-[80dvh]">
+    <Hero className="bg-base-100 min-h-[80dvh]">
       <HeroSection className="flex-col">
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-700">The store is empty</h2>
