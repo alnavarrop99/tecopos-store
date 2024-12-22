@@ -1,11 +1,12 @@
 import db from "@tecopos/db"
-import { Card, Skeleton } from "@tecopos/components"
-import React, { Suspense, use } from "react"
+import { Suspense, use } from "react"
 import { CardItem } from "./card"
-import { Load } from "../load"
-import { cartCtx } from "../app"
+import { MainLoading } from "../load"
 import { useSearch } from "wouter"
 import { Empty } from "./empty"
+import { Loading } from "./load"
+import { Wrap } from "./wrap"
+import { globalCtx } from "../../global"
 
 export default () => {
   const search = new URLSearchParams(Object.fromEntries([useSearch().split("=")]))
@@ -17,16 +18,15 @@ export default () => {
     list = db.product.all('')
   }
 
-  return <Suspense fallback={<Load><ProductsLoading /></Load>}>
+  return <Suspense fallback={<MainLoading><Loading /></MainLoading>}>
     <Products list={list} />
   </Suspense>
 }
 
-const Wrap = (props: React.PropsWithChildren) => <main aria-label="products list" className="flex flex-wrap gap-4 [&>*]:flex-1" {...props} />
 
 const Products = ( {list}:{ list: ReturnType<typeof db.product.all> } ) => {
   const products = use(list)
-  const [ cart, setCart ] = use(cartCtx)
+  const [ cart, setCart ] = use(globalCtx).carts
 
   if(!products.length){
     return <Empty />
@@ -50,13 +50,3 @@ const Products = ( {list}:{ list: ReturnType<typeof db.product.all> } ) => {
   }
 }
 
-const LIST = 12
-const ProductsLoading = ( ) => {
-  return <Wrap>
-    {Array.from({length: LIST}).map( (_, index) => (
-      <Card key={index} className="min-w-[20rem] flex-1">
-        <Skeleton className="min-h-[28rem]" />
-      </Card>
-    ) )}
-  </Wrap>
-}

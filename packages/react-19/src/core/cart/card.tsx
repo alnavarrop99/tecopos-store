@@ -9,7 +9,7 @@ type Props = Omit<Product['Res'], 'id'> & {
   clear?: () => void
 }
 
-export const CardItem = ( { image, title, price, quantity, addOne, minusOne, clear }: Props ) => {
+export const Item = ( { image, title, price, quantity, addOne, minusOne, clear }: Props ) => {
   return (<Card layout='full' className="w-full rounded-none before:!rounded-none">
       <CardFigure className="max-h-[16rem] w-full">
         <CardImage alt='carrusel-image' src={image} />

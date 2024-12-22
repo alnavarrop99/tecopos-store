@@ -13,7 +13,7 @@ export const Empty = () => {
           <p className="text-gray-600">
             Looks like you haven't added any items yet.
           </p>
-          <Link className='text-bold' to="/"> Reset here ... </Link>
+          <Link to="/"> Reset here ... </Link>
         </div>
       </HeroSection>
     </Hero>

@@ -1,11 +1,11 @@
 import { Badge, DrawerBtn, Indicator, IndicatorItem, Navbar, NavbarSection } from "@tecopos/components";
 import { ShoppingCart, Store } from "lucide-react";
 import { Link } from "../../comp/link";
-import { cartCtx } from ".";
 import { use } from "react";
+import { globalCtx } from "../../global";
 
 export const Head = () => {
-  const [ cart ] = use(cartCtx)
+  const [ cart ] = use(globalCtx).carts
   const sum = Object.values(cart).reduce( (acc, el) => acc += el, 0 )
   return <Navbar className="py-6">
     <NavbarSection align='start'> 

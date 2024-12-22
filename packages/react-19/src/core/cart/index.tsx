@@ -1,21 +1,22 @@
 import db, { Product } from '@tecopos/db'
-import { Carrusel, CarruselItem, Skeleton } from "@tecopos/components"
+import { Carrusel, CarruselItem } from "@tecopos/components"
 import { Suspense, use } from "react"
-import { CardItem } from './card'
-import { cartCtx } from '../app'
+import { Item } from './card'
 import { Empty } from './empty'
+import { Loading } from './load'
+import { globalCtx } from '../../global'
 
 export default () => {
   const carts = db.product.all(new URLSearchParams({ sort: 'asc' } satisfies Product['Query']))
   return (
-    <Suspense fallback={<CartLoading/>}>
+    <Suspense fallback={<Loading/>}>
       <Cart list={carts} />
     </Suspense>
   )
 }
 
 const Cart = ({ list }: { list: ReturnType<typeof db.product.all> }) => {
-  const [ cart, setCart ] = use(cartCtx)
+  const [ cart, setCart ] = use(globalCtx).carts
   const products = use(list)
   const filterList = products.filter(({ id }) => (id in cart)).map(({ id, ...data }) => ({ id, ...data, quantity: cart[id] }))
 
@@ -26,7 +27,7 @@ const Cart = ({ list }: { list: ReturnType<typeof db.product.all> }) => {
   return (<Carrusel className='w-full' orientation='vertical'>
     {[...filterList].map(( { id, ...data } ) => (
       <CarruselItem key={id} itemId={`${id}`}>
-        <CardItem {...data} addOne={addOne(id)} minusOne={minusOne(id)} clear={clear(id)} />
+        <Item {...data} addOne={addOne(id)} minusOne={minusOne(id)} clear={clear(id)} />
       </CarruselItem>
     ))}
   </Carrusel>)
@@ -56,11 +57,3 @@ const Cart = ({ list }: { list: ReturnType<typeof db.product.all> }) => {
   }
 }
 
-const LIST = 3
-const CartLoading = ( ) => {
-  return <div className='flex flex-col'>
-    {Array.from({length: LIST}).map( (_, index) => (
-      <Skeleton key={index} className="min-h-[16rem] flex-1 rounded-none" />
-    ) )}
-  </div>
-}
