@@ -10,53 +10,59 @@ export type Cart = {
     products: Order[];
 };
 
-export type Query = {
+export type Query = Partial<{
   limit: number
   sort: 'desc'|'asc'
   startdate: string
   enddate: string
-}
+}>
 
-export const all = async ( query?: string | URLSearchParams): Promise<Array<Cart>> => {
-  const res = await fetch(import.meta.env.VITE_API + '/carts' + (query ?? ''), {
-    method: "GET"
+export const all = async ( query?: string | URLSearchParams, abort?: AbortController): Promise<Array<Cart>> => {
+  const res = await fetch(import.meta.env.VITE_API + '/carts' + (query ? `?${query}` : ''), {
+    method: "GET",
+    signal: abort?.signal
   })
   return res.json()
 }
 
-export const id = async (id: number ): Promise<Cart> => {
+export const id = async (id: number, abort?: AbortController ): Promise<Cart> => {
   const res = await fetch(import.meta.env.VITE_API + '/carts/' + id, {
-    method: "GET"
+    method: "GET",
+    signal: abort?.signal
   })
   return res.json()
 }
 
-export const byUser = async (userId: number): Promise<Array<Cart>> => {
+export const byUser = async (userId: number, abort?: AbortController): Promise<Array<Cart>> => {
   const res = await fetch(import.meta.env.VITE_API + '/carts/category/user/' + userId, {
-    method: 'GET'
+    method: 'GET',
+    signal: abort?.signal
   })
   return res.json()
 }
 
-export const add = async (data: Omit<Cart, 'id'>): Promise<Cart> => {
+export const add = async (data: Omit<Cart, 'id'>, abort?: AbortController): Promise<Cart> => {
   const res = await fetch(import.meta.env.VITE_API + '/carts', {
     method: "POST",
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    signal: abort?.signal
   })
   return res.json()
 }
 
-export const edit = async (id: number, data: Omit<Cart, 'id'>): Promise<Cart> => {
+export const edit = async (id: number, data: Omit<Cart, 'id'>, abort?: AbortController): Promise<Cart> => {
   const res = await fetch(import.meta.env.VITE_API + '/carts/' + id, {
     method: "PATCH",
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    signal: abort?.signal
   })
   return res.json()
 }
 
-export const remove = async (id: number): Promise<Cart> => {
+export const remove = async (id: number, abort?: AbortController): Promise<Cart> => {
   const res = await fetch(import.meta.env.VITE_API + '/carts/' + id, {
     method: "DELETE",
+    signal: abort?.signal
   })
   return res.json()
 }
