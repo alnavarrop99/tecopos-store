@@ -2,7 +2,7 @@ import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 // Definir las clases con cva
-const cardProps = cva('card bg-base-100 w-96 shadow-xl', {
+const cardProps = cva('card bg-base-100 shadow-xl', {
   variants: {
     effect: {
       none: '',
@@ -48,8 +48,10 @@ export const CardBody = ({ className, ...props }: React.ComponentPropsWithRef<'d
 
 type imageProps = Required<Pick<React.ComponentPropsWithRef<'img'>, 'src' | 'alt'>>
 
-export const CardImage = ({ className, src, alt, ...props }: imageProps & Omit<React.ComponentPropsWithRef<'img'>, keyof imageProps> ) => (
-  <figure className={className} >
-    <img {...props} src={src} alt={alt} />
-  </figure>
+export const CardImage = ({ src, alt, ...props }: imageProps & Omit<React.ComponentPropsWithRef<'img'>, keyof imageProps> ) => (
+  <img {...props} src={src} alt={alt} />
+)
+
+export const CardFigure = (props: Omit<React.ComponentPropsWithRef<'figure'>, keyof imageProps> ) => (
+  <figure {...props} />
 )

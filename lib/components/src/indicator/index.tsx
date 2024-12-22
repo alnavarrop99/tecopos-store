@@ -2,12 +2,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 export const indicatorProps = cva('indicator', {
   variants: {
-    align: {
+    justify: {
       start: 'indicator-start',
       center: 'indicator-center',
       end: 'indicator-end',
     },
-    justify: {
+    align: {
       top: 'indicator-top',
       middle: 'indicator-middle',
       bottom: 'indicator-bottom',

@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
-export const heroProps = cva('hero bg-neutral text-neutral-content', {
+export const heroProps = cva('hero', {
   variants: {
     overlay: {
       true: 'hero-overlay',
