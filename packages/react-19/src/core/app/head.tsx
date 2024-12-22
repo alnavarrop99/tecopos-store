@@ -14,7 +14,7 @@ export const Head = () => {
      <NavbarSection align='end' className="px-6"> 
       <Indicator>
         <IndicatorItem><Badge color='neutral' className="font-semibold">{sum}</Badge></IndicatorItem>
-        <DrawerBtn size='sm' layout='square'><ShoppingCart size='1.2rem' /></DrawerBtn>
+        <DrawerBtn size='sm' layout='square' className="md:btn-md"><ShoppingCart /></DrawerBtn>
       </Indicator>
     </NavbarSection>
   </Navbar>
