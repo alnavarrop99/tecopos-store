@@ -33,18 +33,13 @@ const Products = ( {list}:{ list: ReturnType<typeof db.product.all> } ) => {
 
   return <Wrap>
     {products.map( ({ id, ...data }) => (
-      <CardItem key={id} {...data} onAdd={localAdd(id)} className="min-w-[24rem]" />
+      <CardItem key={id} {...data} onAdd={handleAdd(id)} className="min-w-[24rem]" />
     ))} 
   </Wrap>
 
-  function localAdd(id: number) {
-    return async () => {
+  function handleAdd(id: number) {
+    return () => {
       setCart({ ...cart , [id]: (cart?.[id] ?? 0) + 1 }) 
-      await db.cart.add({
-        userId: 1,
-        date: `${new Date().toISOString}`,
-        products: [ { quantity: 1, productId: id } ] 
-      })
     }
   }
 }
