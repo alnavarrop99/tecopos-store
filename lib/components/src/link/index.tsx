@@ -20,14 +20,14 @@ export const linkProps = cva('link', {
   },
   defaultVariants: {
     color: "none",
-    noHover: true,
+    noHover: false,
   },
 });
 
 export type linkBase = VariantProps<typeof linkProps>
 interface linkProps extends linkBase, Omit<React.ComponentPropsWithRef<'a'>, keyof linkBase>{}
 
-export const Link = ( { color, noHover = false, className, ...props }: linkProps ) => {
+export const Link = ( { color, noHover, className, ...props }: linkProps ) => {
   return <a {...props} className={linkProps({ color, noHover, className })} />
 }
 

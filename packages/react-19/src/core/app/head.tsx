@@ -1,10 +1,11 @@
 import { Badge, Button, Indicator, IndicatorItem, Navbar, NavbarSection } from "@tecopos/components";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Store } from "lucide-react";
+import { Link } from "../../comp/link";
 
 export const Head = () => {
   return <Navbar>
     <NavbarSection align='start'> 
-      <Badge className="font-bold" color='neutral' size='lg'>Fake Store</Badge>
+      <Link to="/"><Badge className="font-bold py-4 space-x-2" color='neutral' size='lg'> <Store /> <h2>Fake Store</h2></Badge></Link>
     </NavbarSection> 
      <NavbarSection align='end'> 
       <Indicator>
