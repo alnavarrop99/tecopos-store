@@ -31,15 +31,17 @@ export const buttonProps = cva('btn', {
       ghost: 'btn-ghost',
       noAnimation: 'no-animation',
     },
+    layout: {
+      wide: 'btn-wide',
+      block: 'btn-block',
+      circle: 'btn-circle',
+      square: 'btn-square',
+    },
     size: {
       lg: 'btn-lg',
       md: 'btn-md',
       sm: 'btn-sm',
       xs: 'btn-xs',
-      wide: 'btn-wide',
-      block: 'btn-block',
-      circle: 'btn-circle',
-      square: 'btn-square',
     },
   },
   defaultVariants: {
@@ -51,6 +53,6 @@ export const buttonProps = cva('btn', {
 export type buttonBase = VariantProps<typeof buttonProps>
 interface buttonProps extends buttonBase, Omit<React.ComponentPropsWithRef<'button'>, keyof buttonBase>{}
 
-export const Button = ( { variant, color, active, disabled, effect, size, className, ...props }: buttonProps ) => {
-  return <button {...props} className={buttonProps({ color, active, disabled, variant, effect, size, className })} />
+export const Button = ( { variant, layout, color, active, disabled, effect, size, className, ...props }: buttonProps ) => {
+  return <button {...props} className={buttonProps({ color, layout, active, disabled, variant, effect, size, className })} />
 }

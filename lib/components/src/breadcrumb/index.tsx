@@ -17,9 +17,9 @@ export const breadcrumbsProps = cva('breadcrumbs', {
 })
 
 export type breadcrumbsBase = VariantProps<typeof breadcrumbsProps>
-interface buttonProps extends breadcrumbsBase, Omit<React.ComponentPropsWithRef<'div'>, keyof breadcrumbsBase>{}
+interface breadcrumbsProps extends breadcrumbsBase, Omit<React.ComponentPropsWithRef<'div'>, keyof breadcrumbsBase>{}
 
-export const Breadcrumb = ( { size, className, children, ...props }: buttonProps ) => {
+export const Breadcrumb = ( { size, className, children, ...props }: breadcrumbsProps ) => {
   return (<div {...props} className={breadcrumbsProps({size, className})}>
     <ul>{children}</ul>
   </div>)

@@ -75,6 +75,6 @@ type itemBase = buttonBase & {
 
 interface itemProps extends itemBase, Omit<React.ComponentPropsWithRef<'a'>, keyof itemBase | 'href'> {}
 
-export const CarruselMenuItem = ({ variant, active, disabled, effect, size = 'xs', color, itemId, className, ...props }: itemProps ) => {
-  return <a {...props} href={`#${itemId}`} className={buttonProps({ effect, size, color, active, disabled, variant, className })} />
+export const CarruselMenuItem = ({ variant, layout, active, disabled, effect, size = 'xs', color, itemId, className, ...props }: itemProps ) => {
+  return <a {...props} href={`#${itemId}`} className={buttonProps({ effect, layout, size, color, active, disabled, variant, className })} />
 }
