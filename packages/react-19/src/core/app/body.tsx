@@ -1,5 +1,16 @@
+import { Button, Input, inputProps, Label } from "@tecopos/components";
+import { RotateCw, Search } from "lucide-react";
+import { useLocation, useSearch } from "wouter";
+
 export const Body = ({ children }: React.PropsWithChildren) => {
-  return <main className="p-4 py-6 bg-gray-100">
+  const [ _, navigate ] = useLocation()
+  const search = new URLSearchParams(Object.fromEntries([useSearch().split("=")]))
+  return <main className="p-4 py-2 bg-gray-100">
+    <Label className={inputProps({ noBordered: false, className: 'gap-2 max-w-xl ms-auto mb-8 pr-0', size: 'md' })}>
+      <Search />
+      <Input className="flex-1" placeholder="category search" headless value={search.get('category') || ''} onChange={(ev) => navigate(`?${new URLSearchParams({ category: ev.target.value })}`)} />
+      <Button effect='ghost' onClick={() => navigate('/')}><RotateCw /></Button>
+    </Label>
     {children}
   </main>
 }

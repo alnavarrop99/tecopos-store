@@ -1,16 +1,20 @@
-import { Badge, Button, Indicator, IndicatorItem, Navbar, NavbarSection } from "@tecopos/components";
+import { Badge, DrawerBtn, Indicator, IndicatorItem, Navbar, NavbarSection } from "@tecopos/components";
 import { ShoppingCart, Store } from "lucide-react";
 import { Link } from "../../comp/link";
+import { cartCtx } from ".";
+import { use } from "react";
 
 export const Head = () => {
-  return <Navbar>
+  const [ cart ] = use(cartCtx)
+  const sum = Object.values(cart).reduce( (acc, el) => acc += el, 0 )
+  return <Navbar className="py-6">
     <NavbarSection align='start'> 
       <Link to="/"><Badge className="font-bold py-4 space-x-2" color='neutral' size='lg'> <Store /> <h2>Fake Store</h2></Badge></Link>
     </NavbarSection> 
-     <NavbarSection align='end'> 
+     <NavbarSection align='end' className="px-6"> 
       <Indicator>
-        <IndicatorItem>#</IndicatorItem>
-        <Button size='sm' layout='square'><ShoppingCart size='1.2rem' /></Button>
+        <IndicatorItem><Badge color='neutral' className="font-semibold">{sum}</Badge></IndicatorItem>
+        <DrawerBtn size='sm' layout='square'><ShoppingCart size='1.2rem' /></DrawerBtn>
       </Indicator>
     </NavbarSection>
   </Navbar>
