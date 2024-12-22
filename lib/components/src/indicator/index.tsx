@@ -23,7 +23,7 @@ export const Indicator = ( { align, className, ...props }: indicatorProps ) => {
   return <div {...props} className={indicatorProps({ align, className })} />
 }
 
-const itemProps = cva('indicator-item')
+const itemProps = cva('indicator-item z-[0]')
 export const IndicatorItem = ( { className, ...props }: React.ComponentPropsWithRef<'div'> ) => {
   return <div {...props} className={itemProps({ className })} />
 }

@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
 export const selectProps = cva('select', {
   variants: {
@@ -28,16 +28,19 @@ export const selectProps = cva('select', {
     }
   },
   defaultVariants: {
+    noBordered: false,
     size: 'md',
     color: 'none'
   },
 })
 
-export type selectBase = VariantProps<typeof selectProps> & { }
+export type selectBase = VariantProps<typeof selectProps> & {
+  headless?: boolean
+}
 interface selectProps extends selectBase, Omit<React.ComponentPropsWithRef<'select'>, keyof selectBase>{}
 
-export const Select = ( { color, noBordered = false, effect, size, className, ref: refNode, ...props }: selectProps ) => {
-  return <select {...props} className={selectProps({ color, noBordered, effect, size, className })} />
+export const Select = ( { color, noBordered, headless, effect, size, className, ref: refNode, ...props }: selectProps ) => {
+  return <select {...props} className={cx({ [ selectProps({ color, noBordered, effect, size }) ]: !headless }, className)} />
 }
 
 export const SelectItem = ( props: React.ComponentPropsWithRef<'option'> ) => {

@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
 export const inputProps = cva('input', {
   variants: {
@@ -28,6 +28,7 @@ export const inputProps = cva('input', {
     }
   },
   defaultVariants: {
+    noBordered: true,
     size: 'md',
     color: 'none'
   },
@@ -35,9 +36,10 @@ export const inputProps = cva('input', {
 
 export type inputBase = VariantProps<typeof inputProps> & { 
   type?: Exclude<React.ComponentPropsWithRef<'input'>['type'], 'radio' | 'image' | 'color' | 'button' | 'checkbox' | 'file' | 'hidden' | 'range' | 'reset' | 'submit'>
+  headless?: boolean
 }
 interface inputProps extends inputBase, Omit<React.ComponentPropsWithRef<'input'>, keyof inputBase>{}
 
-export const Input = ( { color, noBordered = false, type, effect, size, className, ref: refNode, ...props }: inputProps ) => {
-  return <input {...props} type={type} className={inputProps({ color, noBordered, effect, size, className })} />
+export const Input = ( { color, noBordered, type, effect, size, className, ref: refNode, headless, ...props }: inputProps ) => {
+  return <input {...props} type={type} className={cx({ [ inputProps({ color, noBordered, effect, size }) ]: !headless }, className)} />
 }
