@@ -12,57 +12,69 @@ export type Query = Partial<{
   sort: 'desc'|'asc'
 }>
 
-export const all = async ( query?: string | URLSearchParams, abort?: AbortController): Promise<Array<Product>> => {
-  try {
+export const all = async <T extends Array<Product>>( query?: string | URLSearchParams, opt?: { abort?: AbortController, call?: (res: T) => void }): Promise<T> => {
   const res = await fetch(import.meta.env.VITE_API + '/products' + (query ? `?${query}` : ''), {
     method: "GET",
-    signal: abort?.signal
+    signal: opt?.abort?.signal
   })
-  return res.json()
-  } catch(err){
-    // @ts-ignore
-    return { err: err as string }
-  }
+  const value = await res.json() as T
+  if(res.ok) opt?.call?.(value)
+  return value
 }
 
-export const id = async (id: number, abort?: AbortController): Promise<Product> => {
+export const id = async <T extends Product>(id: number, opt?: { abort?: AbortController, call?: (res: T) => void }): Promise<T> => {
   const res = await fetch(import.meta.env.VITE_API + '/products/' + id, {
     method: "GET",
-    signal: abort?.signal
+    signal: opt?.abort?.signal
   })
-  return res.json()
+  
+  const value = await res.json() as T
+  if(res.ok) opt?.call?.(value)
+  return value
 }
 
-export const category = async (value: string, abort?: AbortController): Promise<Array<Product>> => {
-  const res = await fetch(import.meta.env.VITE_API + '/products/category/' + value, {
+export const category = async <T extends Array<Product>>(search: string, opt?: { abort?: AbortController, call?: (res: T) => void }): Promise<T> => {
+  const res = await fetch(import.meta.env.VITE_API + '/products/category/' + search, {
     method: 'GET',
-    signal: abort?.signal
+    signal: opt?.abort?.signal
   })
-  return res.json()
+  
+  const value = await res.json() as T
+  if(res.ok) opt?.call?.(value)
+  return value
 }
 
-export const add = async (data: Omit<Product, 'id'>, abort?: AbortController): Promise<Product> => {
+export const add = async <T extends Product>(data: Omit<Product, 'id'>, opt?: { abort?: AbortController, call?: (res: T) => void }): Promise<T> => {
   const res = await fetch(import.meta.env.VITE_API + '/products', {
     method: "POST",
     body: JSON.stringify(data),
-    signal: abort?.signal
+    signal: opt?.abort?.signal
   })
-  return res.json()
+  
+  const value = await res.json() as T
+  if(res.ok) opt?.call?.(value)
+  return value
 }
 
-export const edit = async (id: number, data: Omit<Product, 'id'>, abort?: AbortController): Promise<Product> => {
+export const edit = async <T extends Product>(id: number, data: Omit<Product, 'id'>, opt?: { abort?: AbortController, call?: (res: T) => void }): Promise<T> => {
   const res = await fetch(import.meta.env.VITE_API + '/products/' + id, {
     method: "PATCH",
     body: JSON.stringify(data),
-    signal: abort?.signal
+    signal: opt?.abort?.signal
   })
-  return res.json()
+  
+  const value = await res.json() as T
+  if(res.ok) opt?.call?.(value)
+  return value
 }
 
-export const remove = async (id: number, abort?: AbortController): Promise<Product> => {
+export const remove = async <T extends Product>(id: number, opt?: { abort?: AbortController, call?: (res: T) => void }): Promise<T> => {
   const res = await fetch(import.meta.env.VITE_API + '/products/' + id, {
     method: "DELETE",
-    signal: abort?.signal
+    signal: opt?.abort?.signal
   })
-  return res.json()
+  
+  const value = await res.json() as T
+  if(res.ok) opt?.call?.(value)
+  return value
 }
