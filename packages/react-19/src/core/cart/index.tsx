@@ -1,9 +1,10 @@
 import db, { Product } from '@tecopos/db'
-import { Carrusel, CarruselItem } from "@tecopos/components"
+import { Button, Carrusel, CarruselItem } from "@tecopos/components"
 import { Suspense, use } from "react"
 import { Item } from './card'
 import { Empty } from './empty'
 import { Loading } from './load'
+import { DollarSign } from 'lucide-react'
 import { globalCtx } from '../../global'
 
 export default () => {
@@ -24,13 +25,18 @@ const Cart = ({ list }: { list: ReturnType<typeof db.product.all> }) => {
     return <Empty />
   }
 
-  return (<Carrusel className='w-full' orientation='vertical'>
+  return (<>
+    { filterList.length &&
+      <Button variant='outline' color='neutral' size='md' layout='block' className="bg-base-100 text-lg border-0 rounded-none"><DollarSign size='1.2rem' /> Pay now</Button> 
+    }
+    <Carrusel className='w-full' orientation='vertical'>
     {[...filterList].map(( { id, ...data } ) => (
       <CarruselItem key={id} itemId={`${id}`}>
         <Item {...data} addOne={addOne(id)} minusOne={minusOne(id)} clear={clear(id)} />
       </CarruselItem>
     ))}
-  </Carrusel>)
+    </Carrusel>
+  </>)
 
   function addOne(id: number) {
     return () => {
