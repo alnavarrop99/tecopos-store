@@ -1,9 +1,10 @@
 import { AlertCircle, Store } from "lucide-react"
 import { Link } from "../../comp/link"
-import { Alert, Card, CardAction, CardBody } from "@tecopos/components"
+import { Alert, Card, CardAction, CardBody, Hero, HeroSection } from "@tecopos/components"
 
 export default () => {
-  return (<div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+  return (<Hero className="min-h-screen bg-gray-100">
+    <HeroSection>
     <Card className="p-8 max-w-md w-full text-center">
       <Alert>
         <AlertCircle className="size-16 text-error" />
@@ -19,6 +20,7 @@ export default () => {
         </CardAction>
       </CardBody>
     </Card>
-  </div>
+    </HeroSection>
+  </Hero>
   )
 }
