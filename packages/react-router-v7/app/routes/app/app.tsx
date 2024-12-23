@@ -32,7 +32,7 @@ export default ({ loaderData: { list: products, cart } }: Route.ComponentProps) 
     <Drawer justify='end'>
       <DrawerContent> 
         <Head cart={cart} />
-        <Body children={<Outlet context={products} />} />
+        <Body children={<Outlet />} />
       </DrawerContent>
       <DrawerNav> 
         <Nav>
@@ -42,3 +42,4 @@ export default ({ loaderData: { list: products, cart } }: Route.ComponentProps) 
     </Drawer>
   )
 }
+

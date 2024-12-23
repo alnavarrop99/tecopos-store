@@ -15,10 +15,9 @@ export default ({ matches: { "1": { data: { list: products } } } }: Route.Compon
 const Products = ( { list: products }: { list: Array<Product['Res']> } ) => {
   return (
     <Wrap>
-      {products.map( ({ id, ...data }) => (
-        <CardItem id={id} key={id} {...data} className="min-w-[24rem]" />
+      {products.map( (data) => (
+        <CardItem key={data.id} {...data} className="min-w-[24rem]" />
       ))} 
     </Wrap>
   )
 }
-

@@ -10,6 +10,10 @@ import {
 import stylesheet from "./app.css?url";
 import icon from "./assets/icon.svg?url";
 
+import { action as addOne } from "~/routes/cart/addOne";
+import { action as minusOne } from "~/routes/cart/minusOne";
+import { action as clear } from "~/routes/cart/clear";
+
 export const meta: Route.MetaFunction = () => [
   { title: 'Fakestore', content: 'fake articles' }
 ]
@@ -40,6 +44,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return <Outlet />;
 }
+
+export const action = async ( { request }: Route.ActionArgs ) => {
+  const form = await request.formData()
+  const call = {
+    addOne,
+    minusOne,
+    clear
+  } as const
+
+  const value = Array.from(form.values())[0] as keyof typeof call
+  const body = Object.fromEntries(form.entries())
+
+  return call[value]( new Request(request.url, {
+    headers: request.headers,
+    body: JSON.stringify(body),
+    method: request.method
+  }))
+}
+
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
