@@ -9,12 +9,18 @@ catalogs:
     '@babel/preset-typescript':
       specifier: ^7.26.0
       version: 7.26.0
+    '@vitejs/plugin-react':
+      specifier: ^4.3.4
+      version: 4.3.4
     dayjs:
       specifier: ^1.11.13
       version: 1.11.13
     globals:
       specifier: ^15.13.0
       version: 15.14.0
+    lucide-react:
+      specifier: ^0.469.0
+      version: 0.469.0
     typescript:
       specifier: ^5.6.2
       version: 5.7.2
@@ -171,7 +177,7 @@ importers:
         specifier: 'catalog:'
         version: 1.11.13
       lucide-react:
-        specifier: ^0.469.0
+        specifier: 'catalog:'
         version: 0.469.0(react@19.0.0)
       react:
         specifier: catalog:react19
@@ -196,7 +202,92 @@ importers:
         specifier: catalog:react19
         version: 19.0.2(@types/react@19.0.2)
       '@vitejs/plugin-react':
-        specifier: ^4.3.4
+        specifier: 'catalog:'
+        version: 4.3.4(vite@6.0.4(@types/node@20.17.10)(jiti@1.21.7)(yaml@2.6.1))
+      autoprefixer:
+        specifier: catalog:tailwindcss
+        version: 10.4.20(postcss@8.4.49)
+      babel-plugin-react-compiler:
+        specifier: catalog:react19
+        version: 19.0.0-beta-37ed2a7-20241206
+      daisyui:
+        specifier: catalog:tailwindcss
+        version: 4.12.22(postcss@8.4.49)
+      eslint:
+        specifier: ^9.17.0
+        version: 9.17.0(jiti@1.21.7)
+      eslint-plugin-react-hooks:
+        specifier: ^5.0.0
+        version: 5.1.0(eslint@9.17.0(jiti@1.21.7))
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.16
+        version: 0.4.16(eslint@9.17.0(jiti@1.21.7))
+      globals:
+        specifier: 'catalog:'
+        version: 15.14.0
+      postcss:
+        specifier: catalog:tailwindcss
+        version: 8.4.49
+      tailwindcss:
+        specifier: catalog:tailwindcss
+        version: 3.4.17
+      tailwindcss-animate:
+        specifier: catalog:tailwindcss
+        version: 1.0.7(tailwindcss@3.4.17)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.7.2
+      typescript-eslint:
+        specifier: ^8.18.1
+        version: 8.18.1(eslint@9.17.0(jiti@1.21.7))(typescript@5.7.2)
+      vite:
+        specifier: 'catalog:'
+        version: 6.0.4(@types/node@20.17.10)(jiti@1.21.7)(yaml@2.6.1)
+
+  packages/react-19-ssr:
+    dependencies:
+      '@tecopos/components':
+        specifier: workspace:*
+        version: link:../../lib/components
+      '@tecopos/db':
+        specifier: workspace:*
+        version: link:../../lib/db
+      '@tecopos/msw':
+        specifier: workspace:*
+        version: link:../../lib/msw
+      clsx:
+        specifier: catalog:tailwindcss
+        version: 2.1.1
+      dayjs:
+        specifier: 'catalog:'
+        version: 1.11.13
+      lucide-react:
+        specifier: 'catalog:'
+        version: 0.469.0(react@19.0.0)
+      react:
+        specifier: catalog:react19
+        version: 19.0.0
+      react-dom:
+        specifier: catalog:react19
+        version: 19.0.0(react@19.0.0)
+      tailwind-merge:
+        specifier: catalog:tailwindcss
+        version: 2.5.5
+      wouter:
+        specifier: ^3.3.5
+        version: 3.3.5(react@19.0.0)
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.17.0
+        version: 9.17.0
+      '@types/react':
+        specifier: catalog:react19
+        version: 19.0.2
+      '@types/react-dom':
+        specifier: catalog:react19
+        version: 19.0.2(@types/react@19.0.2)
+      '@vitejs/plugin-react':
+        specifier: 'catalog:'
         version: 4.3.4(vite@6.0.4(@types/node@20.17.10)(jiti@1.21.7)(yaml@2.6.1))
       autoprefixer:
         specifier: catalog:tailwindcss
@@ -265,7 +356,7 @@ importers:
         specifier: ^5.1.17
         version: 5.1.18
       lucide-react:
-        specifier: ^0.469.0
+        specifier: 'catalog:'
         version: 0.469.0(react@19.0.0)
       react:
         specifier: catalog:react19

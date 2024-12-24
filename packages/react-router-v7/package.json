@@ -17,7 +17,7 @@
     "clsx": "catalog:tailwindcss",
     "dayjs": "catalog:",
     "isbot": "^5.1.17",
-    "lucide-react": ":catalog",
+    "lucide-react": "catalog:",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
     "react-router": "^7.0.2",
