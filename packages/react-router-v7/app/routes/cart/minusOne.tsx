@@ -10,7 +10,11 @@ export const action = async (request: Route.ActionArgs['request']) => {
   const id = +Object.keys(form)[0]
 
   if( cookie[id] <= 1 ){
-    return clear(request)
+    return clear(new Request(request.url, {
+    headers: request.headers,
+    body: JSON.stringify(form),
+    method: request.method
+  }))
   }
 
   cookie[id] = (cookie?.[id] ?? 0) - 1

@@ -12,10 +12,11 @@ export const loader = async ( { request }: Route.LoaderArgs ) => {
   const cookieHeader = request.headers.get('Cookie')
   const cookie = (await cart.parse(cookieHeader) || {}) as Record<number, number>
 
-  const search = new URLSearchParams(request.url)
+  const url = new URL(request.url)
+  const search = url.searchParams
   let list;
 
-  if(search.has('category')){
+  if(search.get('category')){
     list = await db.product.category(search.get('category')!)
   } else {
     list = await db.product.all('')
@@ -23,23 +24,23 @@ export const loader = async ( { request }: Route.LoaderArgs ) => {
 
   return { 
     list,
-    cart: cookie
+    cart: cookie,
+    search: search.get('category') || '',
   }
 }
 
-export default ({ loaderData: { list: products, cart } }: Route.ComponentProps) => {
+export default ({ loaderData: { list: products, cart, search } }: Route.ComponentProps) => {
   return (
     <Drawer justify='end'>
       <DrawerContent> 
         <Head cart={cart} />
-        <Body children={<Outlet />} />
+        <Body search={search} children={<Outlet />} />
       </DrawerContent>
       <DrawerNav> 
         <Nav>
-          <Cart list={products} cart={cart} />
+          <Cart list={products} cart={cart} search={search} />
         </Nav>
       </DrawerNav>
     </Drawer>
   )
 }
-
