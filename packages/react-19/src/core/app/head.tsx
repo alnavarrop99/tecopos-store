@@ -7,7 +7,7 @@ import { globalCtx } from "../../global";
 export const Head = () => {
   const [ cart ] = use(globalCtx).carts
   const sum = Object.values(cart).reduce( (acc, el) => acc += el, 0 )
-  return <Navbar className="py-6">
+  return <Navbar className="py-6 sticky top-0 z-10">
     <NavbarSection align='start'> 
       <Link to="/"><Badge className="font-bold py-4 space-x-2" color='neutral' size='lg'> <Store /> <h2>Fake Store</h2></Badge></Link>
     </NavbarSection> 

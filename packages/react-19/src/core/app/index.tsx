@@ -12,7 +12,7 @@ export default ({ children }: React.PropsWithChildren) => {
         <Head />
         <Body children={children} />
       </DrawerContent>
-      <DrawerNav> 
+      <DrawerNav className="z-20"> 
         <Nav>
           <Cart />
         </Nav>

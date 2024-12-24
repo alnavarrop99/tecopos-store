@@ -36,7 +36,7 @@ export default ({ loaderData: { list: products, cart, search } }: Route.Componen
         <Head cart={cart} />
         <Body search={search} children={<Outlet />} />
       </DrawerContent>
-      <DrawerNav> 
+      <DrawerNav className="z-20"> 
         <Nav>
           <Cart list={products} cart={cart} search={search} />
         </Nav>
